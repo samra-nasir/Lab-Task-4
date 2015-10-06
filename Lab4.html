@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title>Lab Task 4</title>
+	<style>
+
+		#background_static{
+			background-image: url('images/stars-06.jpg');
+			background-position: 0px 0px;
+			width: 100%;
+			height: 100%;
+					
+		}
+
+		#background{
+			background-image: url('images/stars-06.jpg');
+			background-position: 0px 0px;
+			width: 100%;
+			height: 100%;
+			animation: stars 10s linear infinite;
+			overflow:hidden;
+					
+		}
+
+		@keyframes stars{
+			from{background-position: 0% 0%;}
+			to{background-position: 100% 0%;}
+
+		}
+
+
+		#object{
+			margin-left: 10%;
+			background-image: url('images/plane.png');
+			width:24%;
+			height: 23%;
+			background-repeat: no-repeat;
+			background-position: 10% 5%;
+			position: absolute;
+			
+	
+		}
+
+		@keyframes bird{
+			from{right:0%;opacity:0;}
+			to{right:100%;opacity:1;}
+		}
+
+		#bird1{
+			position: absolute;
+			right: 0px;
+			top: 28.2%;
+			animation: bird 5s linear infinite;
+
+		}    
+
+		#bird2{
+			position: absolute;
+			right: 0px;
+			top: 56.6%;
+			animation: bird 3s linear infinite;
+
+		}  
+
+	</style>
+
+
+	<script>
+		window.onkeydown = function (e) {
+    			var code = e.keyCode;
+    			if (code === 38)
+        			clickUp();
+    			 else if (code === 40)
+        			clickDown();
+    			
+		}
+				
+		function background_move(){
+			var object1 = document.getElementById("background_static");
+			object1.setAttribute('id','background');
+			object1.innerHTML ="<div style='padding: 5%; padding-left:16%'></div><div id='object'></div><img src='images/bird.png' id='bird1'><img src='images/bird.png' id='bird2'>"
+
+		}
+
+		function clickDown(){
+			var plane= document.getElementById("object");
+			plane.style.top=50+'%';
+
+		}
+
+		function clickUp(){
+			var plane= document.getElementById("object");
+			plane.style.top=21.51 +'%';
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<div id='background_static'>
+			<input type="button" value="Start" onclick="background_move()">
+	</div>
+
+</body>
+
+</html>
